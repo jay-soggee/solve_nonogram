@@ -6,6 +6,8 @@
 
 void TestPrintScaned(unsigned int numof_lines, lineclues* line_clues);
 
+void ScanClues(unsigned int numof_lines, unsigned int maxnumof_line_clues, lineclues* line_clues);
+
 
 
 int ScanProblem(unsigned int* _numof_cols,unsigned int* _numof_rows, lineclues* col_clues, lineclues* row_clues) {
@@ -46,90 +48,10 @@ int ScanProblem(unsigned int* _numof_cols,unsigned int* _numof_rows, lineclues* 
 
 
 
-	int* temp_clues = (int*)malloc(sizeof(int) * maxnumof_col_clues);
+	ScanClues(numof_cols, maxnumof_col_clues, col_clues);
 
-	for (unsigned int i = 0; i < numof_cols; i++)
-	{
+	ScanClues(numof_rows, maxnumof_row_clues, row_clues);
 
-		for (unsigned int l = 0; l < maxnumof_col_clues; l++)
-		{
-			temp_clues[l] = 0;
-		}
-
-
-
-		unsigned int numof_clues = 0;
-
-		for (unsigned int j = 0; j < maxnumof_col_clues + 1; j++)
-		{
-			int clue;
-
-			scanf("%d", &clue);
-
-			if (clue == 0) break;
-
-			numof_clues++;
-
-			temp_clues[j] = clue;
-		}
-
-
-
-		col_clues[i].size = numof_clues;
-
-		col_clues[i].clues = (int*)malloc(sizeof(int) * numof_clues);
-
-		for (unsigned int k = 0; k < numof_clues; k++)
-		{
-			col_clues[i].clues[k] = temp_clues[k];
-		}
-
-	}
-	free(temp_clues);
-
-
-
-	temp_clues = (int*)malloc(sizeof(int) * maxnumof_row_clues);
-
-	for (unsigned int i = 0; i < numof_rows; i++)
-	{
-
-		for (unsigned int l = 0; l < maxnumof_row_clues; l++)
-		{
-			temp_clues[l] = 0;
-		}
-
-
-
-		unsigned int numof_clues = 0;
-
-		for (unsigned int j = 0; j < maxnumof_row_clues + 1; j++)
-		{
-			int clue;
-
-			scanf("%d", &clue);
-
-			if (clue == 0) break;
-
-			numof_clues++;
-
-			temp_clues[j] = clue;
-		}
-
-
-
-		row_clues[i].size = numof_clues;
-
-		row_clues[i].clues = (int*)malloc(sizeof(int) * numof_clues);
-
-		for (unsigned int k = 0; k < numof_clues; k++)
-		{
-			row_clues[i].clues[k] = temp_clues[k];
-		}
-
-	}
-	free(temp_clues);
-	temp_clues = NULL;
 
 
 	TestPrintScaned(numof_cols, col_clues);
@@ -139,6 +61,50 @@ int ScanProblem(unsigned int* _numof_cols,unsigned int* _numof_rows, lineclues* 
 
 
 
+void ScanClues(unsigned int numof_lines, unsigned int maxnumof_line_clues, lineclues* line_clues) {
+
+	int* temp_clues = (int*)malloc(sizeof(int) * maxnumof_line_clues);
+
+	for (unsigned int i = 0; i < numof_lines; i++)
+	{
+
+		for (unsigned int l = 0; l < maxnumof_line_clues; l++)
+		{
+			temp_clues[l] = 0;
+		}
+
+
+
+		unsigned int numof_clues = 0;
+
+		for (unsigned int j = 0; j < maxnumof_line_clues + 1; j++)
+		{
+			int clue;
+
+			scanf("%d", &clue);
+
+			if (clue == 0) break;
+
+			numof_clues++;
+
+			temp_clues[j] = clue;
+		}
+
+
+
+		line_clues[i].size = numof_clues;
+
+		line_clues[i].clues = (int*)malloc(sizeof(int) * numof_clues);
+
+		for (unsigned int k = 0; k < numof_clues; k++)
+		{
+			line_clues[i].clues[k] = temp_clues[k];
+		}
+
+	}
+
+	free(temp_clues);
+}
 
 
 
