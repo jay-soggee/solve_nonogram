@@ -54,8 +54,8 @@ int ScanProblem(unsigned int* _numof_cols,unsigned int* _numof_rows, lineclues* 
 
 
 
-	TestPrintScaned(numof_cols, col_clues);
-	TestPrintScaned(numof_rows, row_clues);
+	//TestPrintScaned(numof_cols, col_clues);
+	//TestPrintScaned(numof_rows, row_clues);
 
 }
 
@@ -92,7 +92,7 @@ void ScanClues(unsigned int numof_lines, unsigned int maxnumof_line_clues, linec
 
 
 
-		line_clues[i].size = numof_clues;
+		line_clues[i].quantity = numof_clues;
 
 		line_clues[i].clues = (int*)malloc(sizeof(int) * numof_clues);
 
@@ -112,7 +112,7 @@ void TestPrintScaned(unsigned int numof_lines, lineclues* line_clues) {
 	puts("");
 	for (size_t i = 0; i < numof_lines; i++)
 	{
-		for (size_t j = 0; j < line_clues[i].size; j++)
+		for (size_t j = 0; j < line_clues[i].quantity; j++)
 		{
 			printf("%d ", line_clues[i].clues[j]);
 		}

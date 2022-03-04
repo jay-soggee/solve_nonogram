@@ -21,6 +21,9 @@
     <ClCompile Include="scan_prob.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="solve.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
