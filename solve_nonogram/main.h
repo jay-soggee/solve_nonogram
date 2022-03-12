@@ -17,6 +17,7 @@ int ScanProblem(
 	lineclues* col_clues, 
 	lineclues* row_clues);
 
+int SolveThisLine(lineclues line_clues, unsigned int numof_cells);
 
 
 #endif
